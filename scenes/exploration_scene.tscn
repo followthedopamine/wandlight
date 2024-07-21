@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl8sbfg6rlyop"]
+
+[ext_resource type="Texture2D" uid="uid://dfo6glmhk3jgh" path="res://sprites/placeholder/placeholder_character.PNG" id="1_k6r2k"]
+
+[node name="ExplorationScene" type="Node2D"]
+
+[node name="PlayerCharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="PlayerSprite2D" type="Sprite2D" parent="PlayerCharacterBody2D"]
+position = Vector2(549, 329)
+texture = ExtResource("1_k6r2k")
