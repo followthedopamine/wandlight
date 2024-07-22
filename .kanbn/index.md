@@ -23,13 +23,14 @@ completedColumns:
 
 - [respawn-animation-sound](tasks/respawn-animation-sound.md)
 - [create-enemies](tasks/create-enemies.md)
-- [implement-player-animations](tasks/implement-player-animations.md)
 - [implement-door-and-lever-animations](tasks/implement-door-and-lever-animations.md)
-- [create-a-dodge-roll](tasks/create-a-dodge-roll.md)
 - [create-timed-rooms](tasks/create-timed-rooms.md)
+- [implement-player-damage-and-death-animations](tasks/implement-player-damage-and-death-animations.md)
 
 ## In Progress
 
 ## Done
 
 - [fix-light-so-it-does-not-pass-around-solid-objects](tasks/fix-light-so-it-does-not-pass-around-solid-objects.md)
+- [implement-player-animations](tasks/implement-player-animations.md)
+- [create-a-dodge-roll](tasks/create-a-dodge-roll.md)

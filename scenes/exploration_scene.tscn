@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bl8sbfg6rlyop"]
+[gd_scene load_steps=38 format=3 uid="uid://bl8sbfg6rlyop"]
 
 [ext_resource type="Texture2D" uid="uid://dfo6glmhk3jgh" path="res://sprites/placeholder/placeholder_character.PNG" id="1_k6r2k"]
 [ext_resource type="Texture2D" uid="uid://bg2kr54ujilvt" path="res://sprites/placeholder/Respawn.png" id="1_rmd6q"]
@@ -9,12 +9,364 @@
 [ext_resource type="Script" path="res://scripts/WandPointLight2D.gd" id="5_hhiec"]
 [ext_resource type="Texture2D" uid="uid://be6mjm2xc6j0u" path="res://sprites/placeholder/placeholder_floor.png" id="6_u67h0"]
 [ext_resource type="Script" path="res://scripts/PlayerRespawn.gd" id="7_i72ew"]
+[ext_resource type="Texture2D" uid="uid://d21kbpjd8rafi" path="res://sprites/Run_Down-Sheet.png" id="8_4wsmd"]
 [ext_resource type="Script" path="res://scripts/GateButton.gd" id="8_ndy4p"]
 [ext_resource type="Texture2D" uid="uid://dlfa78tsmdjs5" path="res://sprites/placeholder/placeholder_button.png" id="9_1k34x"]
+[ext_resource type="Texture2D" uid="uid://fclb5tabh3fn" path="res://sprites/Run_Up-Sheet.png" id="9_tkijh"]
 [ext_resource type="Texture2D" uid="uid://d3xpl5uitxxv8" path="res://sprites/placeholder/placeholder_gate.PNG" id="10_ncbeq"]
+[ext_resource type="Texture2D" uid="uid://xvetrh4nh8rf" path="res://sprites/Run_Right-Sheet.png" id="10_taxam"]
+[ext_resource type="Texture2D" uid="uid://c0jgewwdxidmd" path="res://sprites/Roll_Right-Sheet.png" id="11_kkdx8"]
+[ext_resource type="Texture2D" uid="uid://ccpjijfpcxhw8" path="res://sprites/Monster_Walk_Down-Sheet.png" id="11_pnio0"]
+[ext_resource type="Texture2D" uid="uid://rwsxy02cabus" path="res://sprites/Roll_Down-Sheet.png" id="12_vpgqn"]
+[ext_resource type="Texture2D" uid="uid://d1gfnhwrg3p7h" path="res://sprites/Roll_Up-Sheet.png" id="13_pfinb"]
+[ext_resource type="Script" path="res://scenes/EnemyMovement.gd" id="14_obndl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgu50"]
-size = Vector2(54, 54)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g38qq"]
+radius = 5.0
+height = 22.0
+
+[sub_resource type="Animation" id="Animation_hbsyh"]
+resource_name = "walk_down"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_4wsmd")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_d4em1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_k6r2k")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hg8pf"]
+resource_name = "walk_up"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_tkijh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_6j55b"]
+resource_name = "walk_left"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_taxam")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gy330"]
+resource_name = "walk_right"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_taxam")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_md1v2"]
+resource_name = "roll_right"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_kkdx8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wej0y"]
+resource_name = "roll_left"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_kkdx8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wgan1"]
+resource_name = "roll_down"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_vpgqn")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_31t60"]
+resource_name = "roll_up"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_pfinb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ii27q"]
+_data = {
+"RESET": SubResource("Animation_d4em1"),
+"roll_down": SubResource("Animation_wgan1"),
+"roll_left": SubResource("Animation_wej0y"),
+"roll_right": SubResource("Animation_md1v2"),
+"roll_up": SubResource("Animation_31t60"),
+"walk_down": SubResource("Animation_hbsyh"),
+"walk_left": SubResource("Animation_6j55b"),
+"walk_right": SubResource("Animation_gy330"),
+"walk_up": SubResource("Animation_hg8pf")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3t0o"]
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iy7n6"]
 radius = 24.0208
@@ -44,17 +396,25 @@ script = ExtResource("2_addvr")
 
 [node name="PlayerCharacterBody2D" type="CharacterBody2D" parent="." groups=["Player"]]
 position = Vector2(568, 331)
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("2_xi8vk")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacterBody2D"]
+zoom = Vector2(2.5, 2.5)
 
 [node name="PlayerSprite2D" type="Sprite2D" parent="PlayerCharacterBody2D"]
+texture_filter = 1
+scale = Vector2(-1, 1)
 texture = ExtResource("1_k6r2k")
+hframes = 4
 
 [node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="PlayerCharacterBody2D"]
-shape = SubResource("RectangleShape2D_kgu50")
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_g38qq")
 
 [node name="WandPointLight2D" type="PointLight2D" parent="PlayerCharacterBody2D"]
+texture_filter = 1
 color = Color(1, 0.843005, 0.605464, 1)
 energy = 2.0
 shadow_enabled = true
@@ -64,6 +424,27 @@ script = ExtResource("5_hhiec")
 
 [node name="PlayerRespawn" type="Node" parent="PlayerCharacterBody2D"]
 script = ExtResource("7_i72ew")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerCharacterBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_ii27q")
+}
+
+[node name="EnemyRigidBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(806, 308)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("14_obndl")
+
+[node name="EnemyCollisionShape2D" type="CollisionShape2D" parent="EnemyRigidBody2D"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_q3t0o")
+
+[node name="EnemySprite2D" type="Sprite2D" parent="EnemyRigidBody2D"]
+texture_filter = 1
+position = Vector2(0, -12)
+texture = ExtResource("11_pnio0")
+hframes = 4
 
 [node name="ButtonArea2D" type="Area2D" parent="."]
 position = Vector2(513, 98)
@@ -80,6 +461,7 @@ position = Vector2(879, 113)
 scale = Vector2(1, 5)
 
 [node name="GateSprite2D" type="Sprite2D" parent="GateStaticBody2D"]
+texture_filter = 1
 texture = ExtResource("10_ncbeq")
 
 [node name="GateCollisionShape2D" type="CollisionShape2D" parent="GateStaticBody2D"]
@@ -90,6 +472,7 @@ shape = SubResource("RectangleShape2D_eog1o")
 
 [node name="TreeStaticBody2D3" type="StaticBody2D" parent="Trees"]
 position = Vector2(374, 382)
+collision_mask = 6
 
 [node name="TreeSprite2D" type="Sprite2D" parent="Trees/TreeStaticBody2D3"]
 texture = ExtResource("3_2b61w")
@@ -102,6 +485,7 @@ occluder = SubResource("OccluderPolygon2D_7a85p")
 
 [node name="TreeStaticBody2D4" type="StaticBody2D" parent="Trees"]
 position = Vector2(676, 168)
+collision_mask = 6
 
 [node name="TreeSprite2D" type="Sprite2D" parent="Trees/TreeStaticBody2D4"]
 texture = ExtResource("3_2b61w")
@@ -114,6 +498,7 @@ occluder = SubResource("OccluderPolygon2D_7a85p")
 
 [node name="TreeStaticBody2D5" type="StaticBody2D" parent="Trees"]
 position = Vector2(546, 513)
+collision_mask = 6
 
 [node name="TreeSprite2D" type="Sprite2D" parent="Trees/TreeStaticBody2D5"]
 texture = ExtResource("3_2b61w")
@@ -131,6 +516,7 @@ centered = false
 
 [node name="GroundSprite2D" type="Sprite2D" parent="."]
 z_index = -999
+texture_filter = 1
 position = Vector2(579, 371)
 scale = Vector2(1.16917, 1.14333)
 texture = ExtResource("6_u67h0")

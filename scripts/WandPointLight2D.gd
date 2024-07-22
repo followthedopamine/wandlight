@@ -1,13 +1,13 @@
 extends PointLight2D
 
-var light_strength = 5
+var light_strength = 3
 var initial_strength = light_strength
-var light_decay = 0.7
+var light_decay = 0.1
 var needs_respawn = false
 @onready var player_respawn = $"../PlayerRespawn"
 
 func check_failure_condition():
-	if light_strength <= 0.1:
+	if light_strength <= 0.01:
 		player_respawn.respawn_player()
 		light_strength = initial_strength
 
