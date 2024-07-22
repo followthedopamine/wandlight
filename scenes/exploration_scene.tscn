@@ -1,11 +1,63 @@
-[gd_scene load_steps=2 format=3 uid="uid://bl8sbfg6rlyop"]
+[gd_scene load_steps=8 format=3 uid="uid://bl8sbfg6rlyop"]
 
+[ext_resource type="Script" path="res://scenes/exploration_scene.gd" id="1_b0was"]
 [ext_resource type="Texture2D" uid="uid://dfo6glmhk3jgh" path="res://sprites/placeholder/placeholder_character.PNG" id="1_k6r2k"]
+[ext_resource type="Script" path="res://scripts/PlayerMovementScript.gd" id="2_xi8vk"]
+[ext_resource type="Texture2D" uid="uid://mko5gwcjb0iw" path="res://sprites/placeholder/placeholder_tree.PNG" id="3_2b61w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgu50"]
+size = Vector2(54, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fych6"]
+size = Vector2(66, 92)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4sjnt"]
+blend_mode = 3
 
 [node name="ExplorationScene" type="Node2D"]
+script = ExtResource("1_b0was")
 
 [node name="PlayerCharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(568, 331)
+script = ExtResource("2_xi8vk")
+
+[node name="Camera2D" type="Camera2D" parent="PlayerCharacterBody2D"]
 
 [node name="PlayerSprite2D" type="Sprite2D" parent="PlayerCharacterBody2D"]
-position = Vector2(549, 329)
 texture = ExtResource("1_k6r2k")
+
+[node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="PlayerCharacterBody2D"]
+shape = SubResource("RectangleShape2D_kgu50")
+
+[node name="Trees" type="Node" parent="."]
+
+[node name="TreeStaticBody2D3" type="StaticBody2D" parent="Trees"]
+position = Vector2(374, 382)
+
+[node name="TreeSprite2D" type="Sprite2D" parent="Trees/TreeStaticBody2D3"]
+texture = ExtResource("3_2b61w")
+
+[node name="TreeCollisionShape2D" type="CollisionShape2D" parent="Trees/TreeStaticBody2D3"]
+shape = SubResource("RectangleShape2D_fych6")
+
+[node name="TreeStaticBody2D2" type="StaticBody2D" parent="Trees"]
+position = Vector2(649, 120)
+
+[node name="TreeSprite2D" type="Sprite2D" parent="Trees/TreeStaticBody2D2"]
+texture = ExtResource("3_2b61w")
+
+[node name="TreeCollisionShape2D" type="CollisionShape2D" parent="Trees/TreeStaticBody2D2"]
+shape = SubResource("RectangleShape2D_fych6")
+
+[node name="TreeStaticBody2D" type="StaticBody2D" parent="Trees"]
+position = Vector2(770, 291)
+
+[node name="TreeSprite2D" type="Sprite2D" parent="Trees/TreeStaticBody2D"]
+texture = ExtResource("3_2b61w")
+
+[node name="TreeCollisionShape2D" type="CollisionShape2D" parent="Trees/TreeStaticBody2D"]
+shape = SubResource("RectangleShape2D_fych6")
+
+[node name="Fog" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_4sjnt")
+centered = false
