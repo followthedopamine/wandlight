@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bl8sbfg6rlyop"]
+[gd_scene load_steps=19 format=3 uid="uid://bl8sbfg6rlyop"]
 
 [ext_resource type="Texture2D" uid="uid://dfo6glmhk3jgh" path="res://sprites/placeholder/placeholder_character.PNG" id="1_k6r2k"]
 [ext_resource type="Texture2D" uid="uid://bg2kr54ujilvt" path="res://sprites/placeholder/Respawn.png" id="1_rmd6q"]
@@ -9,12 +9,25 @@
 [ext_resource type="Script" path="res://scripts/WandPointLight2D.gd" id="5_hhiec"]
 [ext_resource type="Texture2D" uid="uid://be6mjm2xc6j0u" path="res://sprites/placeholder/placeholder_floor.png" id="6_u67h0"]
 [ext_resource type="Script" path="res://scripts/PlayerRespawn.gd" id="7_i72ew"]
+[ext_resource type="Script" path="res://scripts/GateButton.gd" id="8_ndy4p"]
+[ext_resource type="Texture2D" uid="uid://dlfa78tsmdjs5" path="res://sprites/placeholder/placeholder_button.png" id="9_1k34x"]
+[ext_resource type="Texture2D" uid="uid://d3xpl5uitxxv8" path="res://sprites/placeholder/placeholder_gate.PNG" id="10_ncbeq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgu50"]
 size = Vector2(54, 54)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_iy7n6"]
+radius = 24.0208
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eog1o"]
+size = Vector2(29, 34.8)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fych6"]
 size = Vector2(66, 92)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7a85p"]
+cull_mode = 1
+polygon = PackedVector2Array(0, -44, -26, -12, -29, 15, -9, 27, -6, 35, 7, 34, 8, 28, 28, 15, 23, -19)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4sjnt"]
 blend_mode = 3
@@ -29,7 +42,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_rmd6q")
 script = ExtResource("2_addvr")
 
-[node name="PlayerCharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="PlayerCharacterBody2D" type="CharacterBody2D" parent="." groups=["Player"]]
 position = Vector2(568, 331)
 script = ExtResource("2_xi8vk")
 
@@ -52,6 +65,27 @@ script = ExtResource("5_hhiec")
 [node name="PlayerRespawn" type="Node" parent="PlayerCharacterBody2D"]
 script = ExtResource("7_i72ew")
 
+[node name="ButtonArea2D" type="Area2D" parent="."]
+position = Vector2(513, 98)
+script = ExtResource("8_ndy4p")
+
+[node name="ButtonSprite2D" type="Sprite2D" parent="ButtonArea2D"]
+texture = ExtResource("9_1k34x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonArea2D"]
+shape = SubResource("CircleShape2D_iy7n6")
+
+[node name="GateStaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(879, 113)
+scale = Vector2(1, 5)
+
+[node name="GateSprite2D" type="Sprite2D" parent="GateStaticBody2D"]
+texture = ExtResource("10_ncbeq")
+
+[node name="GateCollisionShape2D" type="CollisionShape2D" parent="GateStaticBody2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_eog1o")
+
 [node name="Trees" type="Node" parent="."]
 
 [node name="TreeStaticBody2D3" type="StaticBody2D" parent="Trees"]
@@ -63,23 +97,32 @@ texture = ExtResource("3_2b61w")
 [node name="TreeCollisionShape2D" type="CollisionShape2D" parent="Trees/TreeStaticBody2D3"]
 shape = SubResource("RectangleShape2D_fych6")
 
-[node name="TreeStaticBody2D2" type="StaticBody2D" parent="Trees"]
-position = Vector2(649, 120)
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Trees/TreeStaticBody2D3"]
+occluder = SubResource("OccluderPolygon2D_7a85p")
 
-[node name="TreeSprite2D" type="Sprite2D" parent="Trees/TreeStaticBody2D2"]
+[node name="TreeStaticBody2D4" type="StaticBody2D" parent="Trees"]
+position = Vector2(676, 168)
+
+[node name="TreeSprite2D" type="Sprite2D" parent="Trees/TreeStaticBody2D4"]
 texture = ExtResource("3_2b61w")
 
-[node name="TreeCollisionShape2D" type="CollisionShape2D" parent="Trees/TreeStaticBody2D2"]
+[node name="TreeCollisionShape2D" type="CollisionShape2D" parent="Trees/TreeStaticBody2D4"]
 shape = SubResource("RectangleShape2D_fych6")
 
-[node name="TreeStaticBody2D" type="StaticBody2D" parent="Trees"]
-position = Vector2(770, 291)
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Trees/TreeStaticBody2D4"]
+occluder = SubResource("OccluderPolygon2D_7a85p")
 
-[node name="TreeSprite2D" type="Sprite2D" parent="Trees/TreeStaticBody2D"]
+[node name="TreeStaticBody2D5" type="StaticBody2D" parent="Trees"]
+position = Vector2(546, 513)
+
+[node name="TreeSprite2D" type="Sprite2D" parent="Trees/TreeStaticBody2D5"]
 texture = ExtResource("3_2b61w")
 
-[node name="TreeCollisionShape2D" type="CollisionShape2D" parent="Trees/TreeStaticBody2D"]
+[node name="TreeCollisionShape2D" type="CollisionShape2D" parent="Trees/TreeStaticBody2D5"]
 shape = SubResource("RectangleShape2D_fych6")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Trees/TreeStaticBody2D5"]
+occluder = SubResource("OccluderPolygon2D_7a85p")
 
 [node name="FogSprite2D" type="Sprite2D" parent="."]
 z_index = 999
@@ -93,4 +136,6 @@ scale = Vector2(1.16917, 1.14333)
 texture = ExtResource("6_u67h0")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0, 0, 0, 0.85098)
+color = Color(0.103744, 0.103744, 0.103744, 0.85098)
+
+[connection signal="body_entered" from="ButtonArea2D" to="ButtonArea2D" method="_on_body_entered"]
