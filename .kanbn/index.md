@@ -22,15 +22,21 @@ completedColumns:
 ## Todo
 
 - [respawn-animation-sound](tasks/respawn-animation-sound.md)
-- [create-enemies](tasks/create-enemies.md)
 - [implement-door-and-lever-animations](tasks/implement-door-and-lever-animations.md)
 - [create-timed-rooms](tasks/create-timed-rooms.md)
 - [implement-player-damage-and-death-animations](tasks/implement-player-damage-and-death-animations.md)
+- [enemy-hit-animation](tasks/enemy-hit-animation.md)
+- [max-wand-charge-indicator-for-reaching-max-possibly](tasks/max-wand-charge-indicator-for-reaching-max-possibly.md)
+- [bug-monster-dances-on-death-circle-range](tasks/bug-monster-dances-on-death-circle-range.md)
+- [bug-damage-doesn-t-display-while-charging](tasks/bug-damage-doesn-t-display-while-charging.md)
 
 ## In Progress
 
 ## Done
 
 - [fix-light-so-it-does-not-pass-around-solid-objects](tasks/fix-light-so-it-does-not-pass-around-solid-objects.md)
+- [enemy-collison-damages-player](tasks/enemy-collison-damages-player.md)
+- [create-enemies](tasks/create-enemies.md)
 - [implement-player-animations](tasks/implement-player-animations.md)
 - [create-a-dodge-roll](tasks/create-a-dodge-roll.md)
+- [player-can-stand-still-and-charge-the-light-back-up](tasks/player-can-stand-still-and-charge-the-light-back-up.md)
