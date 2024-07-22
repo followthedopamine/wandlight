@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 80
 
-@onready var player = $"../PlayerCharacterBody2D"
+@onready var player = $"../Player/PlayerCharacterBody2D"
 @onready var attack_timer = $AttackTimer
 @onready var animations = $EnemyAnimationPlayer
 

@@ -7,11 +7,10 @@ var light_charge_speed = 0.3
 var light_damage = 0.4
 var needs_respawn = false
 var is_charging = false
-@onready var player_respawn = $"../PlayerRespawn"
 
 func check_failure_condition():
 	if light_strength <= 0.01:
-		player_respawn.respawn_player()
+		get_tree().reload_current_scene()
 		light_strength = initial_strength
 
 func decay_light(delta):

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://n0vt6al3j3vw"]
+
+[ext_resource type="Texture2D" uid="uid://bg2kr54ujilvt" path="res://sprites/placeholder/Respawn.png" id="1_ec5h6"]
+[ext_resource type="Script" path="res://scripts/RespawnSprite2D.gd" id="2_rubuv"]
+
+[node name="RespawnNode2D" type="Node2D"]
+position = Vector2(272, 118)
+
+[node name="RespawnSprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_ec5h6")
+script = ExtResource("2_rubuv")

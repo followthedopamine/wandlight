@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5qkvl38nfae3"]
+
+[ext_resource type="PackedScene" uid="uid://sx8nv7gt21gg" path="res://scenes/Player.tscn" id="1_1rrmi"]
+[ext_resource type="Texture2D" uid="uid://ddh3c4rdu0nyj" path="res://sprites/maps/Map 1.png" id="1_fions"]
+[ext_resource type="PackedScene" uid="uid://n0vt6al3j3vw" path="res://scenes/Respawn.tscn" id="2_5jalu"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_1rrmi")]
+position = Vector2(162, 173)
+
+[node name="RespawnNode2D" parent="." instance=ExtResource("2_5jalu")]
+position = Vector2(106, 172)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Map1" type="Sprite2D" parent="StaticBody2D"]
+z_index = -1
+position = Vector2(305, 161)
+texture = ExtResource("1_fions")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(41, 255, 578, 253, 574, 122, 547, 127, 547, 225, 63, 227, 63, 128, 585, 128, 583, 106, 43, 110)
