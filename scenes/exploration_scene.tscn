@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bl8sbfg6rlyop"]
+[gd_scene load_steps=13 format=3 uid="uid://bl8sbfg6rlyop"]
 
-[ext_resource type="Script" path="res://scenes/exploration_scene.gd" id="1_b0was"]
 [ext_resource type="Texture2D" uid="uid://dfo6glmhk3jgh" path="res://sprites/placeholder/placeholder_character.PNG" id="1_k6r2k"]
+[ext_resource type="Texture2D" uid="uid://bg2kr54ujilvt" path="res://sprites/placeholder/Respawn.png" id="1_rmd6q"]
+[ext_resource type="Script" path="res://scripts/RespawnSprite2D.gd" id="2_addvr"]
 [ext_resource type="Script" path="res://scripts/PlayerMovementScript.gd" id="2_xi8vk"]
 [ext_resource type="Texture2D" uid="uid://mko5gwcjb0iw" path="res://sprites/placeholder/placeholder_tree.PNG" id="3_2b61w"]
+[ext_resource type="Texture2D" uid="uid://ctnn5b84yl7s0" path="res://sprites/placeholder/WandLight.png" id="4_c5vtu"]
+[ext_resource type="Script" path="res://scripts/WandPointLight2D.gd" id="5_hhiec"]
+[ext_resource type="Texture2D" uid="uid://be6mjm2xc6j0u" path="res://sprites/placeholder/placeholder_floor.png" id="6_u67h0"]
+[ext_resource type="Script" path="res://scripts/PlayerRespawn.gd" id="7_i72ew"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgu50"]
 size = Vector2(54, 54)
@@ -15,7 +20,14 @@ size = Vector2(66, 92)
 blend_mode = 3
 
 [node name="ExplorationScene" type="Node2D"]
-script = ExtResource("1_b0was")
+
+[node name="RespawnNode2D" type="Node2D" parent="."]
+position = Vector2(272, 118)
+
+[node name="RespawnSprite2D" type="Sprite2D" parent="RespawnNode2D"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_rmd6q")
+script = ExtResource("2_addvr")
 
 [node name="PlayerCharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(568, 331)
@@ -28,6 +40,17 @@ texture = ExtResource("1_k6r2k")
 
 [node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="PlayerCharacterBody2D"]
 shape = SubResource("RectangleShape2D_kgu50")
+
+[node name="WandPointLight2D" type="PointLight2D" parent="PlayerCharacterBody2D"]
+color = Color(1, 0.843005, 0.605464, 1)
+energy = 2.0
+shadow_enabled = true
+texture = ExtResource("4_c5vtu")
+texture_scale = 10.0
+script = ExtResource("5_hhiec")
+
+[node name="PlayerRespawn" type="Node" parent="PlayerCharacterBody2D"]
+script = ExtResource("7_i72ew")
 
 [node name="Trees" type="Node" parent="."]
 
@@ -58,7 +81,16 @@ texture = ExtResource("3_2b61w")
 [node name="TreeCollisionShape2D" type="CollisionShape2D" parent="Trees/TreeStaticBody2D"]
 shape = SubResource("RectangleShape2D_fych6")
 
-[node name="Fog" type="Sprite2D" parent="."]
+[node name="FogSprite2D" type="Sprite2D" parent="."]
 z_index = 999
 material = SubResource("CanvasItemMaterial_4sjnt")
 centered = false
+
+[node name="GroundSprite2D" type="Sprite2D" parent="."]
+z_index = -999
+position = Vector2(579, 371)
+scale = Vector2(1.16917, 1.14333)
+texture = ExtResource("6_u67h0")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 0.85098)

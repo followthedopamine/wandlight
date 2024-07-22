@@ -1,18 +1,19 @@
 extends Node2D
 
-const LIGHT_TEXTURE = preload("res://sprites/placeholder/Light.png")
-const GRID_SIZE = 16
+var light_texture = preload("res://sprites/placeholder/WandLightNormal.png")
+const GRID_SIZE = 1
 
-@onready var fog = $Fog
+@onready var fog = $FogSprite2D
 @onready var player = $PlayerCharacterBody2D
+@onready var wand_light = $PlayerCharacterBody2D/WandPointLight2D
 
 var display_width = ProjectSettings.get("display/window/size/viewport_width")
 var display_height = ProjectSettings.get("display/window/size/viewport_height")
 
 var fog_image = Image.new()
 var fog_texture = ImageTexture.new()
-var light_image = LIGHT_TEXTURE.get_image()
-var light_offset = Vector2(LIGHT_TEXTURE.get_width()/2, LIGHT_TEXTURE.get_height()/2)
+var light_image = light_texture.get_image()
+var light_dimensions = Vector2(light_texture.get_width(), light_texture.get_height())
 
 func _ready():
 	var fog_image_width = display_width/GRID_SIZE
@@ -23,8 +24,11 @@ func _ready():
 	fog.scale *= GRID_SIZE
 
 func update_fog(new_grid_position):
+	light_image.resize(light_dimensions.x * wand_light.texture_scale, light_dimensions.y * wand_light.texture_scale)
+	var light_offset = Vector2(light_image.get_width()/2, light_image.get_height()/2)
 	var light_rect = Rect2(Vector2.ZERO, Vector2(light_image.get_width(), light_image.get_height()))
-	fog_image.blend_rect(light_image, light_rect, new_grid_position - light_offset)
+	
+	fog_image.blit_rect(light_image, light_rect, new_grid_position - light_offset)
 	update_fog_image_texture()
 
 func update_fog_image_texture():
