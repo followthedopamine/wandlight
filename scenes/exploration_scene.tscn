@@ -59,5 +59,6 @@ texture = ExtResource("3_2b61w")
 shape = SubResource("RectangleShape2D_fych6")
 
 [node name="Fog" type="Sprite2D" parent="."]
+z_index = 999
 material = SubResource("CanvasItemMaterial_4sjnt")
 centered = false
