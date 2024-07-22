@@ -359,6 +359,7 @@ _data = {
 [node name="Player" type="Node2D"]
 
 [node name="PlayerCharacterBody2D" type="CharacterBody2D" parent="." groups=["Player"]]
+z_index = 5
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_fuxiv")
