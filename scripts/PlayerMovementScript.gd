@@ -15,6 +15,7 @@ var remaining_roll_duration = 0
 var damage_cooldown = 1
 var remaining_damage_cooldown = 0
 
+var is_paused = false
 
 
 func get_input():
@@ -57,8 +58,7 @@ func update_animation():
 		
 func handle_collision():
 	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
+		var collider = get_slide_collision(i).get_collider()
 		if collider.name.to_lower().contains("enemy"):
 			if remaining_damage_cooldown == 0:
 				print("Enemy collision")
@@ -67,10 +67,11 @@ func handle_collision():
 				break
 	
 func _physics_process(_delta):
-	get_input()
-	if !wand_light.is_charging:
-		move_and_slide()
-	handle_collision()
+	if !is_paused:
+		get_input()
+		if !wand_light.is_charging:
+			move_and_slide()
+		handle_collision()
 	update_animation()
 
 func _process(delta):

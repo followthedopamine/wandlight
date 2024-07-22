@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://n0vt6al3j3vw" path="res://scenes/Respawn.tscn" id="2_hkdug"]
 [ext_resource type="Texture2D" uid="uid://mko5gwcjb0iw" path="res://sprites/placeholder/placeholder_tree.PNG" id="3_2b61w"]
 [ext_resource type="Texture2D" uid="uid://be6mjm2xc6j0u" path="res://sprites/placeholder/placeholder_floor.png" id="6_u67h0"]
-[ext_resource type="Script" path="res://scripts/GateButton.gd" id="8_ndy4p"]
+[ext_resource type="Script" path="res://scripts/Lever.gd" id="8_ndy4p"]
 [ext_resource type="Texture2D" uid="uid://dlfa78tsmdjs5" path="res://sprites/placeholder/placeholder_button.png" id="9_1k34x"]
 [ext_resource type="Texture2D" uid="uid://d3xpl5uitxxv8" path="res://sprites/placeholder/placeholder_gate.PNG" id="10_ncbeq"]
 [ext_resource type="Texture2D" uid="uid://ccpjijfpcxhw8" path="res://sprites/Monster_Walk_Down-Sheet.png" id="11_pnio0"]

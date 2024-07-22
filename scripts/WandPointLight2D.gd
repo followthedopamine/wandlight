@@ -1,5 +1,8 @@
 extends PointLight2D
 
+@onready var player = $".."
+
+
 var light_strength = 3
 var initial_strength = light_strength
 var light_decay = 0.5
@@ -36,9 +39,10 @@ func _input(event):
 		is_charging = false
 
 func _process(delta):
-	if is_charging:
-		charge_light(delta)
-	else:
-		decay_light(delta)
-	update_light_texture()
+	if !player.is_paused:
+		if is_charging:
+			charge_light(delta)
+		else:
+			decay_light(delta)
+		update_light_texture()
 	

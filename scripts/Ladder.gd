@@ -7,5 +7,5 @@ func go_to_next_level():
 	get_tree().change_scene_to_file("res://scenes/" + next_level + ".tscn")
 	pass
 
-func _on_body_entered(body):
-	go_to_next_level()
+func _on_body_entered(_body): #TODO Only player should be able to activate end level
+	call_deferred("go_to_next_level")

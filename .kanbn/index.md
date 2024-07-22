@@ -18,6 +18,8 @@ completedColumns:
 - [sound-effects](tasks/sound-effects.md)
 - [music](tasks/music.md)
 - [tutorial](tasks/tutorial.md)
+- [fix-collision-and-art-so-player-can-disappear-under-bottom-walls](tasks/fix-collision-and-art-so-player-can-disappear-under-bottom-walls.md)
+- [vertical-offset-for-camera-when-panning-to-door](tasks/vertical-offset-for-camera-when-panning-to-door.md)
 
 ## Todo
 

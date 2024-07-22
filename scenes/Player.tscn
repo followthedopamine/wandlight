@@ -366,6 +366,7 @@ script = ExtResource("1_fuxiv")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacterBody2D"]
 zoom = Vector2(2.5, 2.5)
+position_smoothing_enabled = true
 
 [node name="PlayerSprite2D" type="Sprite2D" parent="PlayerCharacterBody2D"]
 texture_filter = 1
