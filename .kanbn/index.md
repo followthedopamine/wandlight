@@ -34,6 +34,7 @@ completedColumns:
 - [bug-damage-doesn-t-display-while-charging](tasks/bug-damage-doesn-t-display-while-charging.md)
 - [add-darkness-back-in-and-add-light-occlusion-to-everything](tasks/add-darkness-back-in-and-add-light-occlusion-to-everything.md)
 - [add-a-light-to-the-door](tasks/add-a-light-to-the-door.md)
+- [add-light-to-falling-player](tasks/add-light-to-falling-player.md)
 
 ## In Progress
 
