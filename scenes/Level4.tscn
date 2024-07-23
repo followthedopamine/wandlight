@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://drb4a6ydwbydu"]
+[gd_scene load_steps=9 format=3 uid="uid://drb4a6ydwbydu"]
 
 [ext_resource type="PackedScene" uid="uid://n0vt6al3j3vw" path="res://scenes/Respawn.tscn" id="1_mk5od"]
 [ext_resource type="PackedScene" uid="uid://sx8nv7gt21gg" path="res://scenes/Player.tscn" id="2_d7alq"]
@@ -6,6 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://baupaakmqqjcw" path="res://scenes/Lever.tscn" id="4_qrbs1"]
 [ext_resource type="PackedScene" uid="uid://b6sbjm7c08007" path="res://scenes/Ladder.tscn" id="5_w8r0t"]
 [ext_resource type="PackedScene" uid="uid://dya3ge6t6br4j" path="res://scenes/Door.tscn" id="6_1wfw5"]
+[ext_resource type="PackedScene" uid="uid://84lyisayr6om" path="res://scenes/Enemy.tscn" id="7_tvqx3"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_43n5v"]
+vertices = PackedVector2Array(285, 129, 352, 127, 352, 336, 286, 192, 101, 190, 29, 336, 93, 191, 124, -36, 121, -248, 133, -248, 133, -12, 100, -12, -130, -34, -130, 0, 93, 51, -131, 51, -131, 19, -130, 154, -60, 154, -59, 242, -131, 243, -132, 211, -131, 177, -136, 190, -227, 212, -220, 190, -228, 178, -220, 155, -352, 154, -356, 177, -356, 1, -352, 22, 29, 192)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(7, 10, 11, 12), PackedInt32Array(13, 12, 11, 14), PackedInt32Array(14, 15, 16, 13), PackedInt32Array(17, 18, 19, 20, 21, 22), PackedInt32Array(23, 22, 21), PackedInt32Array(23, 21, 24, 25), PackedInt32Array(25, 24, 26, 27), PackedInt32Array(28, 27, 26, 29), PackedInt32Array(28, 29, 30, 31), PackedInt32Array(31, 30, 13, 16), PackedInt32Array(5, 32, 6), PackedInt32Array(4, 6, 14, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-141, 175, -140, 144, -51, 145, -49, 252, -141, 254, -142, 221, -237, 223, -238, 188, -366, 187, -366, -8, -140, -10, -141, -44, 114, -46, 111, -258, 143, -258, 143, -2, 110, -2, 111, 180, 276, 182, 275, 120, 363, 117, 362, 346, 20, 347, 19, 183, 83, 181, 83, 61, -142, 62, -141, 29, -342, 32, -342, 144, -211, 146, -210, 180, -143, 180)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Level4" type="Node2D"]
 
@@ -33,3 +40,12 @@ next_level = "Level3"
 
 [node name="DoorStaticBody2D" parent="." instance=ExtResource("6_1wfw5")]
 position = Vector2(127, -234)
+
+[node name="EnemyRigidBody2D" parent="." instance=ExtResource("7_tvqx3")]
+position = Vector2(117, 257)
+
+[node name="EnemyRigidBody2D2" parent="." instance=ExtResource("7_tvqx3")]
+position = Vector2(-96, 6)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_43n5v")

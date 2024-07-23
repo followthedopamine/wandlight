@@ -7,7 +7,7 @@ const SPEED = 80
 @onready var animations = $EnemyAnimationPlayer
 @onready var enemy_collision = $EnemyCollisionShape2D
 @onready var nav = $NavigationAgent2D
-
+@onready var enemy_sprite = $EnemySprite2D
 
 
 enum {
@@ -57,6 +57,8 @@ func update_animation():
 		elif velocity.y < 0:
 			last_direction = "up"
 		animations.play("enemy_walk_" + last_direction)
+		print("enemy_walk_" + last_direction)
+		print(enemy_sprite.texture)
 	
 func handle_collision():
 	for i in get_slide_collision_count():

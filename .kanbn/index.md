@@ -28,7 +28,6 @@ completedColumns:
 - [max-wand-charge-indicator-for-reaching-max-possibly](tasks/max-wand-charge-indicator-for-reaching-max-possibly.md)
 - [bug-monster-dances-on-death-circle-range](tasks/bug-monster-dances-on-death-circle-range.md)
 - [add-darkness-back-in-and-add-light-occlusion-to-everything](tasks/add-darkness-back-in-and-add-light-occlusion-to-everything.md)
-- [bug-player-can-roll-in-place](tasks/bug-player-can-roll-in-place.md)
 - [make-light-flicker-out-on-death](tasks/make-light-flicker-out-on-death.md)
 - [level-4-enemies-and-nav-mesh](tasks/level-4-enemies-and-nav-mesh.md)
 - [enemy-move-away-from-player-after-hit](tasks/enemy-move-away-from-player-after-hit.md)
@@ -41,6 +40,8 @@ completedColumns:
 ## Done
 
 - [enemy-hit-animation](tasks/enemy-hit-animation.md)
+- [bug-adding-more-than-one-enemy-to-scene-breaks-animations](tasks/bug-adding-more-than-one-enemy-to-scene-breaks-animations.md)
+- [bug-player-can-roll-in-place](tasks/bug-player-can-roll-in-place.md)
 - [time-pausing-during-animations](tasks/time-pausing-during-animations.md)
 - [consider-limiting-player-to-4-directional-movement](tasks/consider-limiting-player-to-4-directional-movement.md)
 - [pan-camera-to-door-after-the-lever-is-pulled](tasks/pan-camera-to-door-after-the-lever-is-pulled.md)
