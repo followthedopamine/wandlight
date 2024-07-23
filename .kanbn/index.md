@@ -33,6 +33,7 @@ completedColumns:
 - [bug-monster-dances-on-death-circle-range](tasks/bug-monster-dances-on-death-circle-range.md)
 - [bug-damage-doesn-t-display-while-charging](tasks/bug-damage-doesn-t-display-while-charging.md)
 - [add-darkness-back-in-and-add-light-occlusion-to-everything](tasks/add-darkness-back-in-and-add-light-occlusion-to-everything.md)
+- [add-a-light-to-the-door](tasks/add-a-light-to-the-door.md)
 
 ## In Progress
 
