@@ -15,15 +15,18 @@ var remaining_roll_cooldown = 0
 var remaining_roll_duration = 0
 var damage_cooldown = 1
 var remaining_damage_cooldown = 0
+var last_direction = "down"
 
 var is_paused = true
 
 func get_input():
+	if wand_light.is_charging:
+		velocity = Vector2.ZERO
+		return
 	if !is_rolling:
 		var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		velocity = input_direction * speed
 	if Input.is_action_just_pressed("roll"):
-		
 		roll()
 		
 func roll():
@@ -42,28 +45,35 @@ func enable_enemy_collision():
 	set_collision_mask_value(3,true)
 
 func update_animation():
-	if wand_light.is_charging:
+	
+	#if velocity.length() == 0:
+		#animations.play("idle_down")
+	
+	last_direction = "down"
+	if velocity.x < 0: 
+		last_direction = "left"
+	elif velocity.x > 0: 
+		last_direction="right"
+	elif velocity.y < 0:
+		last_direction = "up"
+		
+	if remaining_damage_cooldown > 0:
+		animations.play("hit_" + last_direction)
+		return
+	elif wand_light.is_charging:
 		animations.play("charge")
 		return
-	if velocity.length() == 0:
-		animations.play("idle_down")
-	var direction = "down"
-	if velocity.x < 0: 
-		direction = "left"
-	elif velocity.x > 0: 
-		direction="right"
-	elif velocity.y < 0:
-		direction = "up"
-	
-	if is_rolling:
-		animations.play("roll_" + direction)
 	else:
-		animations.play("walk_" + direction)
+		if is_rolling:
+			animations.play("roll_" + last_direction)
+		else:
+			animations.play("walk_" + last_direction)
 	
 	
 func handle_collision():
 	for i in get_slide_collision_count():
 		var collider = get_slide_collision(i).get_collider()
+		print(collider.name)
 		if collider.name.to_lower().contains("enemy"):
 			if remaining_damage_cooldown == 0:
 				print("Enemy collision")
@@ -74,10 +84,10 @@ func handle_collision():
 func _physics_process(_delta):
 	if !is_paused:
 		get_input()
-		if !wand_light.is_charging:
-			move_and_slide()
 		handle_collision()
 		update_animation()
+		move_and_slide()
+		
 
 func _process(delta):
 	

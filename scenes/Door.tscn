@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dya3ge6t6br4j"]
+[gd_scene load_steps=7 format=3 uid="uid://dya3ge6t6br4j"]
 
 [ext_resource type="Texture2D" uid="uid://o8kdfm5m85c5" path="res://sprites/maps/Only Door-Sheet.png" id="1_a6ifi"]
 
@@ -41,6 +41,8 @@ _data = {
 "open_door": SubResource("Animation_r86ie")
 }
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6ge8n"]
+
 [node name="DoorStaticBody2D" type="StaticBody2D"]
 position = Vector2(0, -138)
 collision_mask = 6
@@ -58,3 +60,9 @@ shape = SubResource("RectangleShape2D_pumc8")
 libraries = {
 "": SubResource("AnimationLibrary_w57rh")
 }
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(8, 15)
+color = Color(0.659042, 0, 0.00135931, 1)
+texture = SubResource("PlaceholderTexture2D_6ge8n")
+texture_scale = 12.25

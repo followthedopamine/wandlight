@@ -4,7 +4,7 @@ extends PointLight2D
 @onready var light_circle = $"../LightCircleArea2D"
 
 
-var light_strength = 3
+var light_strength = 2
 var initial_strength = light_strength
 var light_decay = 0.5
 var light_charge_speed = 0.3
@@ -36,7 +36,10 @@ func damage_light():
 
 func _input(event):
 	if event.is_action_pressed("charge"):
-		is_charging = true
+		if player.remaining_damage_cooldown == 0:
+			is_charging = true
+		else:
+			is_charging = false
 	elif event.is_action_released("charge"):
 		is_charging = false
 

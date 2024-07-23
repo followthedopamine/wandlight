@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dphooo4hrlynk"]
+[gd_scene load_steps=11 format=3 uid="uid://dphooo4hrlynk"]
 
 [ext_resource type="PackedScene" uid="uid://n0vt6al3j3vw" path="res://scenes/Respawn.tscn" id="1_od17c"]
 [ext_resource type="PackedScene" uid="uid://sx8nv7gt21gg" path="res://scenes/Player.tscn" id="2_d2mo6"]
@@ -13,6 +13,12 @@ polygon = PackedVector2Array(-31, 99, -113, 98, -114, 66, -222, 67, -223, 235, -
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7qem3"]
 polygon = PackedVector2Array(-25, 160, -25, 34, -25, 160)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ckdht"]
+vertices = PackedVector2Array(256, 101, 252, 246, -13, 246, -10, 180, -9, 164, -205, 213, -204, 131, -131, 131, -132, 166, -133, 181, -10, 99, -133, 212)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(4, 10, 0), PackedInt32Array(8, 4, 3, 9), PackedInt32Array(5, 9, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-214, 122, -121, 121, -122, 156, -19, 154, -21, 89, 267, 92, 262, 256, -23, 256, -20, 190, -123, 191, -123, 222, -216, 224)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Level3" type="Node2D"]
 
@@ -57,4 +63,7 @@ z_index = 5
 position = Vector2(57, 162)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.103744, 0.103744, 0.103744, 0.85098)
+color = Color(0, 0, 0, 1)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_ckdht")
