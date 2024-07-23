@@ -63,13 +63,14 @@ func _on_attack_timer_timeout():
 	print("Changed state")
 	
 func _physics_process(delta):
-	update_animation()
-	match state:
-		SURROUND:
-			if !player.is_rolling:
-				move(get_circle_position(randomnum), delta)
-		ATTACK:
-			move(player.global_position, delta)
+	if !player.is_paused:
+		update_animation()
+		match state:
+			SURROUND:
+				if !player.is_rolling:
+					move(get_circle_position(randomnum), delta)
+			ATTACK:
+				move(player.global_position, delta)
 
 
 

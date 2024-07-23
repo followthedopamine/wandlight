@@ -1,211 +1,13 @@
-[gd_scene load_steps=24 format=3 uid="uid://bl8sbfg6rlyop"]
+[gd_scene load_steps=14 format=3 uid="uid://bl8sbfg6rlyop"]
 
 [ext_resource type="PackedScene" uid="uid://sx8nv7gt21gg" path="res://scenes/Player.tscn" id="1_duej7"]
 [ext_resource type="PackedScene" uid="uid://n0vt6al3j3vw" path="res://scenes/Respawn.tscn" id="2_hkdug"]
 [ext_resource type="Texture2D" uid="uid://mko5gwcjb0iw" path="res://sprites/placeholder/placeholder_tree.PNG" id="3_2b61w"]
+[ext_resource type="PackedScene" uid="uid://84lyisayr6om" path="res://scenes/Enemy.tscn" id="3_q6ebd"]
 [ext_resource type="Texture2D" uid="uid://be6mjm2xc6j0u" path="res://sprites/placeholder/placeholder_floor.png" id="6_u67h0"]
 [ext_resource type="Script" path="res://scripts/Lever.gd" id="8_ndy4p"]
 [ext_resource type="Texture2D" uid="uid://dlfa78tsmdjs5" path="res://sprites/placeholder/placeholder_button.png" id="9_1k34x"]
 [ext_resource type="Texture2D" uid="uid://d3xpl5uitxxv8" path="res://sprites/placeholder/placeholder_gate.PNG" id="10_ncbeq"]
-[ext_resource type="Texture2D" uid="uid://ccpjijfpcxhw8" path="res://sprites/Monster_Walk_Down-Sheet.png" id="11_pnio0"]
-[ext_resource type="Script" path="res://scripts/EnemyMovement.gd" id="14_obndl"]
-[ext_resource type="Texture2D" uid="uid://dt3ufld6asqfo" path="res://sprites/Monster_Walk_Up-Sheet.png" id="16_0pap2"]
-[ext_resource type="Texture2D" uid="uid://doi2b3xide6sj" path="res://sprites/Monster_Walk_Right-Sheet.png" id="17_lnotr"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3t0o"]
-radius = 8.0
-
-[sub_resource type="Animation" id="Animation_m3hao"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyRigidBody2D/EnemySprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("11_pnio0")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("EnemyRigidBody2D/EnemySprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("EnemyRigidBody2D/EnemySprite2D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_juf2e"]
-resource_name = "enemy_walk_down"
-length = 0.8
-loop_mode = 1
-step = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyRigidBody2D/EnemySprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("11_pnio0")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("EnemyRigidBody2D/EnemySprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_vcsgo"]
-resource_name = "enemy_walk_left"
-length = 0.8
-loop_mode = 1
-step = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyRigidBody2D/EnemySprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("17_lnotr")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("EnemyRigidBody2D/EnemySprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("EnemyRigidBody2D/EnemySprite2D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_gluej"]
-resource_name = "enemy_walk_right"
-length = 0.8
-loop_mode = 1
-step = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyRigidBody2D/EnemySprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("17_lnotr")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("EnemyRigidBody2D/EnemySprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("EnemyRigidBody2D/EnemySprite2D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_rnhug"]
-resource_name = "enemy_walk_up"
-length = 0.8
-loop_mode = 1
-step = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyRigidBody2D/EnemySprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("16_0pap2")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("EnemyRigidBody2D/EnemySprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_upvd5"]
-_data = {
-"RESET": SubResource("Animation_m3hao"),
-"enemy_walk_down": SubResource("Animation_juf2e"),
-"enemy_walk_left": SubResource("Animation_vcsgo"),
-"enemy_walk_right": SubResource("Animation_gluej"),
-"enemy_walk_up": SubResource("Animation_rnhug")
-}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iy7n6"]
 radius = 24.0208
@@ -229,31 +31,7 @@ blend_mode = 3
 
 [node name="RespawnNode2D" parent="." instance=ExtResource("2_hkdug")]
 
-[node name="EnemyRigidBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(806, 308)
-collision_layer = 4
-collision_mask = 3
-script = ExtResource("14_obndl")
-
-[node name="EnemyCollisionShape2D" type="CollisionShape2D" parent="EnemyRigidBody2D"]
-position = Vector2(0, 3)
-shape = SubResource("CapsuleShape2D_q3t0o")
-
-[node name="EnemySprite2D" type="Sprite2D" parent="EnemyRigidBody2D"]
-texture_filter = 1
-position = Vector2(0, -12)
-texture = ExtResource("11_pnio0")
-hframes = 4
-
-[node name="AttackTimer" type="Timer" parent="EnemyRigidBody2D"]
-wait_time = 5.0
-autostart = true
-
-[node name="EnemyAnimationPlayer" type="AnimationPlayer" parent="EnemyRigidBody2D"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_upvd5")
-}
+[node name="EnemyRigidBody2D" parent="." instance=ExtResource("3_q6ebd")]
 
 [node name="ButtonArea2D" type="Area2D" parent="."]
 position = Vector2(513, 98)
@@ -333,5 +111,4 @@ texture = ExtResource("6_u67h0")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.103744, 0.103744, 0.103744, 0.85098)
 
-[connection signal="timeout" from="EnemyRigidBody2D/AttackTimer" to="EnemyRigidBody2D" method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="ButtonArea2D" to="ButtonArea2D" method="_on_body_entered"]

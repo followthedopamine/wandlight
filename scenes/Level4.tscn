@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://drb4a6ydwbydu"]
+
+[ext_resource type="PackedScene" uid="uid://n0vt6al3j3vw" path="res://scenes/Respawn.tscn" id="1_mk5od"]
+[ext_resource type="PackedScene" uid="uid://sx8nv7gt21gg" path="res://scenes/Player.tscn" id="2_d7alq"]
+[ext_resource type="Texture2D" uid="uid://bwnn5mfliu0bh" path="res://sprites/maps/Map 4.png" id="3_j80q5"]
+[ext_resource type="PackedScene" uid="uid://baupaakmqqjcw" path="res://scenes/Lever.tscn" id="4_qrbs1"]
+[ext_resource type="PackedScene" uid="uid://b6sbjm7c08007" path="res://scenes/Ladder.tscn" id="5_w8r0t"]
+[ext_resource type="PackedScene" uid="uid://dya3ge6t6br4j" path="res://scenes/Door.tscn" id="6_1wfw5"]
+
+[node name="Level4" type="Node2D"]
+
+[node name="RespawnNode2D" parent="." instance=ExtResource("1_mk5od")]
+position = Vector2(-96, 203)
+
+[node name="Player" parent="." instance=ExtResource("2_d7alq")]
+position = Vector2(-94, 200)
+
+[node name="Map2StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Map2Sprite2D" type="Sprite2D" parent="Map2StaticBody2D"]
+z_index = -1
+texture = ExtResource("3_j80q5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map2StaticBody2D"]
+polygon = PackedVector2Array(-48, 142, -143, 142, -144, 176, -208, 175, -208, 142, -341, 140, -339, 34, -145, 33, -145, 65, 80, 66, 80, 175, 16, 177, 16, 352, 366, 351, 368, 112, 272, 113, 272, 179, 114, 175, 114, 1, 145, 1, 145, -257, 175, -255, 176, -367, 81, -365, 80, -256, 107, -255, 111, -48, -143, -47, -143, -13, -369, -11, -368, 191, -240, 193, -240, 226, -145, 226, -145, 258, -47, 256, -48, 160, -32, 161, -29, 287, -424, 242, -393, -141, 28, -258, 65, -483, 277, -449, 417, 75, 414, 410, -3, 398, -4, 131, -47, 160)
+
+[node name="LeverArea2D" parent="." instance=ExtResource("4_qrbs1")]
+position = Vector2(266, 137)
+
+[node name="LadderArea2D" parent="." instance=ExtResource("5_w8r0t")]
+position = Vector2(128, -321)
+next_level = "Level3"
+
+[node name="DoorStaticBody2D" parent="." instance=ExtResource("6_1wfw5")]
+position = Vector2(127, -234)

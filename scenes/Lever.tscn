@@ -4,7 +4,22 @@
 [ext_resource type="Texture2D" uid="uid://dvok1oe2jb6bg" path="res://sprites/maps/Lever-Sheet.png" id="2_01bbm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w0xto"]
-radius = 24.0208
+radius = 12.0
+
+[sub_resource type="Animation" id="Animation_fum3n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeverSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_1052l"]
 resource_name = "pull_lever"
@@ -20,21 +35,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 0, 1, 2, 3, 4, 6]
-}
-
-[sub_resource type="Animation" id="Animation_fum3n"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LeverSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yltjg"]
@@ -54,7 +54,7 @@ texture = ExtResource("2_01bbm")
 hframes = 8
 
 [node name="LeverCollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(55, -11)
+position = Vector2(54, -16)
 shape = SubResource("CircleShape2D_w0xto")
 
 [node name="LeverAnimationPlayer" type="AnimationPlayer" parent="."]

@@ -20,6 +20,7 @@ completedColumns:
 - [tutorial](tasks/tutorial.md)
 - [fix-collision-and-art-so-player-can-disappear-under-bottom-walls](tasks/fix-collision-and-art-so-player-can-disappear-under-bottom-walls.md)
 - [vertical-offset-for-camera-when-panning-to-door](tasks/vertical-offset-for-camera-when-panning-to-door.md)
+- [camera-shake-on-door-opening](tasks/camera-shake-on-door-opening.md)
 
 ## Todo
 
@@ -31,6 +32,7 @@ completedColumns:
 - [max-wand-charge-indicator-for-reaching-max-possibly](tasks/max-wand-charge-indicator-for-reaching-max-possibly.md)
 - [bug-monster-dances-on-death-circle-range](tasks/bug-monster-dances-on-death-circle-range.md)
 - [bug-damage-doesn-t-display-while-charging](tasks/bug-damage-doesn-t-display-while-charging.md)
+- [add-darkness-back-in-and-add-light-occlusion-to-everything](tasks/add-darkness-back-in-and-add-light-occlusion-to-everything.md)
 
 ## In Progress
 

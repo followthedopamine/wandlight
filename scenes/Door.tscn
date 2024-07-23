@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://dya3ge6t6br4j"]
+
+[ext_resource type="Texture2D" uid="uid://o8kdfm5m85c5" path="res://sprites/maps/Only Door-Sheet.png" id="1_a6ifi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pumc8"]
+size = Vector2(48, 55.5)
+
+[sub_resource type="Animation" id="Animation_hd537"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_r86ie"]
+resource_name = "open_door"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w57rh"]
+_data = {
+"RESET": SubResource("Animation_hd537"),
+"open_door": SubResource("Animation_r86ie")
+}
+
+[node name="DoorStaticBody2D" type="StaticBody2D"]
+position = Vector2(0, -138)
+collision_mask = 6
+
+[node name="DoorSprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 26)
+texture = ExtResource("1_a6ifi")
+hframes = 8
+
+[node name="DoorCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.75)
+shape = SubResource("RectangleShape2D_pumc8")
+
+[node name="DoorAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w57rh")
+}

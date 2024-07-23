@@ -41,8 +41,11 @@ func enable_enemy_collision():
 	set_collision_mask_value(3,true)
 
 func update_animation():
+	if wand_light.is_charging:
+		animations.play("charge")
+		return
 	if velocity.length() == 0:
-		animations.stop()
+		animations.play("idle_down")
 	var direction = "down"
 	if velocity.x < 0: 
 		direction = "left"
@@ -55,7 +58,8 @@ func update_animation():
 		animations.play("roll_" + direction)
 	else:
 		animations.play("walk_" + direction)
-		
+	
+	
 func handle_collision():
 	for i in get_slide_collision_count():
 		var collider = get_slide_collision(i).get_collider()
@@ -72,7 +76,7 @@ func _physics_process(_delta):
 		if !wand_light.is_charging:
 			move_and_slide()
 		handle_collision()
-	update_animation()
+		update_animation()
 
 func _process(delta):
 	if remaining_damage_cooldown > 0:
