@@ -1,6 +1,7 @@
 extends PointLight2D
 
 @onready var player = $".."
+@onready var light_circle = $"../LightCircleArea2D"
 
 
 var light_strength = 3
@@ -14,7 +15,6 @@ var is_charging = false
 func check_failure_condition():
 	if light_strength <= 0.01:
 		get_tree().reload_current_scene()
-		light_strength = initial_strength
 
 func decay_light(delta):
 	if !needs_respawn:
@@ -24,13 +24,15 @@ func decay_light(delta):
 func charge_light(delta):
 	light_strength = light_strength + light_charge_speed * delta
 	
-func update_light_texture():
+func update_light():
 	self.texture_scale = light_strength
+	light_circle.scale = Vector2(light_strength,light_strength)
+	
 	
 func damage_light():
 	light_strength = light_strength - light_damage
 	check_failure_condition()
-	update_light_texture()
+	update_light()
 
 func _input(event):
 	if event.is_action_pressed("charge"):
@@ -44,5 +46,5 @@ func _process(delta):
 			charge_light(delta)
 		else:
 			decay_light(delta)
-		update_light_texture()
+		update_light()
 	

@@ -67,6 +67,6 @@ func _process(delta):
 	if !lever_animation.is_playing() and !door_animation.is_playing():
 		if camera_panning:
 			pan_camera(camera_target, 250, delta)
-		if !camera_panning and !animation_playing:
-			start_time()
+		#if !camera_panning and !animation_playing:
+			#start_time()
 		

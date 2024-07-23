@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://sx8nv7gt21gg"]
+[gd_scene load_steps=28 format=3 uid="uid://sx8nv7gt21gg"]
 
 [ext_resource type="Script" path="res://scripts/PlayerMovementScript.gd" id="1_fuxiv"]
 [ext_resource type="Texture2D" uid="uid://dq4pcvcuk1mlg" path="res://sprites/Idle Down-Sheet-export.png" id="2_u366r"]
@@ -12,10 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://xvetrh4nh8rf" path="res://sprites/Run_Right-Sheet.png" id="10_oklre"]
 [ext_resource type="Texture2D" uid="uid://fclb5tabh3fn" path="res://sprites/Run_Up-Sheet.png" id="11_o21s4"]
 [ext_resource type="Texture2D" uid="uid://bh7i521vdxdmf" path="res://sprites/Refill-Sheet.png" id="12_3i0vo"]
+[ext_resource type="Texture2D" uid="uid://ddh3c4rdu0nyj" path="res://sprites/maps/Map 1.png" id="13_yrka1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fwu60"]
 radius = 5.0
 height = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_stp7u"]
+radius = 60.0083
 
 [sub_resource type="Animation" id="Animation_d4em1"]
 length = 0.001
@@ -567,8 +571,14 @@ color = Color(1, 0.843005, 0.605464, 1)
 energy = 2.0
 shadow_enabled = true
 texture = ExtResource("3_nuxc6")
-texture_scale = 10.0
 script = ExtResource("4_cy10v")
+
+[node name="LightCircleArea2D" type="Area2D" parent="PlayerCharacterBody2D"]
+collision_layer = 2
+collision_mask = 4
+
+[node name="LightCollisionShape2D" type="CollisionShape2D" parent="PlayerCharacterBody2D/LightCircleArea2D"]
+shape = SubResource("CircleShape2D_stp7u")
 
 [node name="PlayerRespawn" type="Node" parent="PlayerCharacterBody2D"]
 script = ExtResource("5_ceimh")
@@ -577,3 +587,8 @@ script = ExtResource("5_ceimh")
 libraries = {
 "": SubResource("AnimationLibrary_ii27q")
 }
+
+[node name="Map1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-10, 20)
+texture = ExtResource("13_yrka1")

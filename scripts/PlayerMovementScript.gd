@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var wand_light = $WandPointLight2D
 
 
+
 var is_rolling = false
 const roll_cooldown = 1.5
 const roll_duration = 0.8 
@@ -15,14 +16,14 @@ var remaining_roll_duration = 0
 var damage_cooldown = 1
 var remaining_damage_cooldown = 0
 
-var is_paused = false
-
+var is_paused = true
 
 func get_input():
 	if !is_rolling:
 		var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		velocity = input_direction * speed
 	if Input.is_action_just_pressed("roll"):
+		
 		roll()
 		
 func roll():
@@ -79,6 +80,7 @@ func _physics_process(_delta):
 		update_animation()
 
 func _process(delta):
+	
 	if remaining_damage_cooldown > 0:
 		remaining_damage_cooldown = remaining_damage_cooldown - delta
 	else:

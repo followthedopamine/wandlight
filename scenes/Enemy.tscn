@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://84lyisayr6om"]
+[gd_scene load_steps=13 format=3 uid="uid://84lyisayr6om"]
 
 [ext_resource type="Script" path="res://scripts/EnemyMovement.gd" id="1_g7ulv"]
 [ext_resource type="Texture2D" uid="uid://ccpjijfpcxhw8" path="res://sprites/Monster_Walk_Down-Sheet.png" id="2_46l6w"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3t0o"]
 radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yxf38"]
+radius = 82.0061
 
 [sub_resource type="Animation" id="Animation_m3hao"]
 length = 0.001
@@ -220,6 +223,13 @@ hframes = 4
 wait_time = 5.0
 autostart = true
 
+[node name="EnemyAggroArea2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAggroArea2D"]
+shape = SubResource("CircleShape2D_yxf38")
+
 [node name="EnemyAnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
 libraries = {
@@ -227,3 +237,5 @@ libraries = {
 }
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="area_entered" from="EnemyAggroArea2D" to="." method="_on_enemy_aggro_area_2d_area_entered"]
+[connection signal="area_exited" from="EnemyAggroArea2D" to="." method="_on_enemy_aggro_area_2d_area_exited"]

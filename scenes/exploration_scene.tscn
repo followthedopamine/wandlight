@@ -112,3 +112,5 @@ texture = ExtResource("6_u67h0")
 color = Color(0.103744, 0.103744, 0.103744, 0.85098)
 
 [connection signal="body_entered" from="ButtonArea2D" to="ButtonArea2D" method="_on_body_entered"]
+
+[editable path="Player"]

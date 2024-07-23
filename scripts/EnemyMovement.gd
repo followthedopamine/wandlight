@@ -5,15 +5,17 @@ const SPEED = 80
 @onready var player = $"../Player/PlayerCharacterBody2D"
 @onready var attack_timer = $AttackTimer
 @onready var animations = $EnemyAnimationPlayer
+@onready var enemy_collision = $EnemyCollisionShape2D
 
 
 enum {
+	WAITING,
 	SURROUND,
 	ATTACK,
 	HIT,
 }
 
-var state = SURROUND
+var state = WAITING
 
 var randomnum
 var rng = RandomNumberGenerator.new()
@@ -62,15 +64,27 @@ func _on_attack_timer_timeout():
 			state = ATTACK
 	print("Changed state")
 	
+func _on_enemy_aggro_area_2d_area_entered(area):
+	state = SURROUND
+
+func _on_enemy_aggro_area_2d_area_exited(area):
+	state = WAITING
+	
 func _physics_process(delta):
 	if !player.is_paused:
 		update_animation()
+		if player.is_rolling:
+			enemy_collision.disabled = true
+		else:
+			enemy_collision.disabled = false	
 		match state:
 			SURROUND:
-				if !player.is_rolling:
-					move(get_circle_position(randomnum), delta)
+				move(get_circle_position(randomnum), delta)
 			ATTACK:
 				move(player.global_position, delta)
+
+
+
 
 
 

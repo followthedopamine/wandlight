@@ -25,7 +25,6 @@ completedColumns:
 ## Todo
 
 - [respawn-animation-sound](tasks/respawn-animation-sound.md)
-- [implement-door-and-lever-animations](tasks/implement-door-and-lever-animations.md)
 - [create-timed-rooms](tasks/create-timed-rooms.md)
 - [implement-player-damage-and-death-animations](tasks/implement-player-damage-and-death-animations.md)
 - [enemy-hit-animation](tasks/enemy-hit-animation.md)
@@ -35,13 +34,15 @@ completedColumns:
 - [add-darkness-back-in-and-add-light-occlusion-to-everything](tasks/add-darkness-back-in-and-add-light-occlusion-to-everything.md)
 - [add-a-light-to-the-door](tasks/add-a-light-to-the-door.md)
 - [add-light-to-falling-player](tasks/add-light-to-falling-player.md)
-- [bug-player-can-move-while-respawning](tasks/bug-player-can-move-while-respawning.md)
+- [bug-player-can-roll-in-place](tasks/bug-player-can-roll-in-place.md)
 
 ## In Progress
 
 ## Done
 
 - [fix-light-so-it-does-not-pass-around-solid-objects](tasks/fix-light-so-it-does-not-pass-around-solid-objects.md)
+- [bug-player-can-move-while-respawning](tasks/bug-player-can-move-while-respawning.md)
+- [implement-door-and-lever-animations](tasks/implement-door-and-lever-animations.md)
 - [enemy-collison-damages-player](tasks/enemy-collison-damages-player.md)
 - [create-enemies](tasks/create-enemies.md)
 - [implement-player-animations](tasks/implement-player-animations.md)
