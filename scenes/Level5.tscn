@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://c3ilv0pqkuiup"]
+
+[ext_resource type="PackedScene" uid="uid://n0vt6al3j3vw" path="res://scenes/Respawn.tscn" id="1_0wcb1"]
+[ext_resource type="PackedScene" uid="uid://sx8nv7gt21gg" path="res://scenes/Player.tscn" id="2_jgran"]
+[ext_resource type="Texture2D" uid="uid://b3xypyfvc55g0" path="res://sprites/maps/Map 5.png" id="3_ip5y4"]
+[ext_resource type="PackedScene" uid="uid://baupaakmqqjcw" path="res://scenes/Lever.tscn" id="4_mois4"]
+[ext_resource type="PackedScene" uid="uid://b6sbjm7c08007" path="res://scenes/Ladder.tscn" id="5_ypqw3"]
+[ext_resource type="PackedScene" uid="uid://dya3ge6t6br4j" path="res://scenes/Door.tscn" id="6_arlg3"]
+[ext_resource type="PackedScene" uid="uid://84lyisayr6om" path="res://scenes/Enemy.tscn" id="7_78tcv"]
+[ext_resource type="AudioStream" uid="uid://bboytk5mo2h87" path="res://sounds/Retro Ambience 02.wav" id="8_glbbh"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_rtsfn"]
+vertices = PackedVector2Array(-222, 432, -285, 433, -278, 407, -39, -195, -386, -27, -388, -94, -355, -89, 419, 34, 449, 31, 447, 238, 417, 238, 351, 366, 351, 397, 292, 392, -417, 29, -418, -29, -406, 246, 226, 431, 225, 463, -224, 463, 40, -194, 225, -159, 227, -192, -224, -160, -226, -191, -355, -124, -290, -123, -290, -161, 390, -36, 419, -36, -348, 369, -384, 369, -384, 314, -351, 399, 416, 303, 384, 303, 293, -132, 355, -104, -36, -257, 35, -255, 354, -132, -447, 237, -449, 31, 291, -159, 381, 365, 289, 429, 385, -100, -413, 303)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 12, 13), PackedInt32Array(14, 15, 4, 16), PackedInt32Array(17, 18, 19, 0, 3, 20, 21), PackedInt32Array(20, 22, 21), PackedInt32Array(23, 24, 3), PackedInt32Array(6, 25, 26), PackedInt32Array(26, 27, 23), PackedInt32Array(28, 29, 7), PackedInt32Array(30, 31, 32, 3), PackedInt32Array(2, 33, 30, 3), PackedInt32Array(28, 7, 10, 34, 35, 21, 36, 37), PackedInt32Array(3, 38, 39, 20), PackedInt32Array(36, 40, 37), PackedInt32Array(41, 42, 14, 16), PackedInt32Array(21, 43, 36), PackedInt32Array(35, 44, 11), PackedInt32Array(13, 45, 17, 21), PackedInt32Array(37, 46, 28), PackedInt32Array(23, 3, 32, 47, 16, 26), PackedInt32Array(35, 11, 13, 21), PackedInt32Array(4, 6, 26, 16)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-49, -205, -237, -201, -235, -170, -301, -172, -300, -133, -365, -135, -365, -101, -399, -106, -396, -38, -429, -41, -427, 20, -460, 22, -457, 246, -417, 254, -425, 311, -394, 321, -394, 379, -359, 379, -362, 409, -291, 416, -299, 444, -233, 442, -235, 474, 235, 473, 236, 441, 299, 439, 301, 403, 362, 408, 361, 376, 391, 375, 394, 313, 426, 314, 427, 248, 457, 249, 460, 21, 429, 23, 429, -47, 399, -46, 395, -109, 365, -113, 364, -143, 302, -142, 300, -169, 236, -169, 238, -202, 49, -204, 45, -265, -46, -268)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[node name="Level4" type="Node2D"]
+
+[node name="RespawnNode2D" parent="." instance=ExtResource("1_0wcb1")]
+position = Vector2(-3, 439)
+
+[node name="Player" parent="." instance=ExtResource("2_jgran")]
+position = Vector2(-1, 436)
+
+[node name="Map2StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Map2Sprite2D" type="Sprite2D" parent="Map2StaticBody2D"]
+z_index = -1
+texture_filter = 1
+texture = ExtResource("3_ip5y4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map2StaticBody2D"]
+polygon = PackedVector2Array(-51, -210, -239, -206, -239, -177, -303, -176, -304, -140, -369, -140, -369, -108, -401, -111, -401, -45, -431, -46, -432, 11, -464, 13, -464, 255, -430, 256, -431, 318, -400, 321, -399, 384, -369, 385, -368, 415, -302, 416, -302, 448, -240, 447, -240, 479, 238, 479, 239, 447, 304, 448, 303, 413, 370, 414, 367, 383, 400, 384, 399, 319, 432, 319, 434, 255, 463, 255, 465, 16, 433, 17, 434, -52, 401, -52, 400, -115, 368, -115, 367, -146, 303, -146, 304, -172, 241, -174, 241, -207, 50, -208, 49, -270, 18, -269, 19, -319, 48, -320, 47, -431, -48, -430, -47, -320, -14, -320, -14, -269, -48, -270, -50, -209, -121, -444, 124, -457, 482, -133, 543, 240, 468, 538, -512, 536, -566, 196, -390, -331, -120, -271)
+
+[node name="LeverArea2D" parent="." instance=ExtResource("4_mois4")]
+position = Vector2(-503, 41)
+additional_panning_time = 1
+
+[node name="LadderArea2D" parent="." instance=ExtResource("5_ypqw3")]
+position = Vector2(1, -385)
+next_level = "Victory"
+
+[node name="DoorStaticBody2D" parent="." instance=ExtResource("6_arlg3")]
+position = Vector2(0, -298)
+
+[node name="EnemyRigidBody2D" parent="." instance=ExtResource("7_78tcv")]
+position = Vector2(-273, 345)
+
+[node name="EnemyRigidBody2D2" parent="." instance=ExtResource("7_78tcv")]
+position = Vector2(-316, 135)
+
+[node name="EnemyRigidBody2D3" parent="." instance=ExtResource("7_78tcv")]
+position = Vector2(259, 130)
+
+[node name="EnemyRigidBody2D4" parent="." instance=ExtResource("7_78tcv")]
+position = Vector2(64, 92)
+
+[node name="EnemyRigidBody2D5" parent="." instance=ExtResource("7_78tcv")]
+position = Vector2(187, -36)
+
+[node name="EnemyRigidBody2D6" parent="." instance=ExtResource("7_78tcv")]
+position = Vector2(-131, 41)
+
+[node name="EnemyRigidBody2D7" parent="." instance=ExtResource("7_78tcv")]
+position = Vector2(117, 257)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_rtsfn")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_glbbh")
+autoplay = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)

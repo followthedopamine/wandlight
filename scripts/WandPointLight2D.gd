@@ -6,7 +6,7 @@ extends PointLight2D
 
 var light_strength = 2
 var initial_strength = light_strength
-var light_decay = 0.25
+var light_decay = 0.3
 var light_charge_speed = 0.6
 var light_damage = 0.4
 var needs_respawn = false
@@ -14,6 +14,9 @@ var is_charging = false
 
 func check_failure_condition():
 	if light_strength <= 0.01:
+		player.animations.play("die_" + player.last_direction)
+		player.is_paused = true
+		await get_tree().create_timer(1.2).timeout
 		get_tree().reload_current_scene()
 
 func decay_light(delta):

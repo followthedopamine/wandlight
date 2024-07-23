@@ -39,7 +39,7 @@ additional_panning_time = 1
 
 [node name="LadderArea2D" parent="." instance=ExtResource("5_w8r0t")]
 position = Vector2(128, -321)
-next_level = "Victory"
+next_level = "Level5"
 
 [node name="DoorStaticBody2D" parent="." instance=ExtResource("6_1wfw5")]
 position = Vector2(127, -234)
