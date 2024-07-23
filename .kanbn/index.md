@@ -13,7 +13,6 @@ completedColumns:
 - [create-timed-rooms](tasks/create-timed-rooms.md)
 - [submit-the-game](tasks/submit-the-game.md)
 - [work-out-how-to-make-shadows-softer](tasks/work-out-how-to-make-shadows-softer.md)
-- [sound-effects](tasks/sound-effects.md)
 - [music](tasks/music.md)
 - [tutorial](tasks/tutorial.md)
 - [fix-collision-and-art-so-player-can-disappear-under-bottom-walls](tasks/fix-collision-and-art-so-player-can-disappear-under-bottom-walls.md)
@@ -29,17 +28,18 @@ completedColumns:
 - [bug-monster-dances-on-death-circle-range](tasks/bug-monster-dances-on-death-circle-range.md)
 - [add-darkness-back-in-and-add-light-occlusion-to-everything](tasks/add-darkness-back-in-and-add-light-occlusion-to-everything.md)
 - [make-light-flicker-out-on-death](tasks/make-light-flicker-out-on-death.md)
-- [level-4-enemies-and-nav-mesh](tasks/level-4-enemies-and-nav-mesh.md)
 - [enemy-move-away-from-player-after-hit](tasks/enemy-move-away-from-player-after-hit.md)
 
 ## In Progress
 
 - [bug-damage-doesn-t-display-while-charging-interrupt-charging](tasks/bug-damage-doesn-t-display-while-charging-interrupt-charging.md)
 - [implement-player-damage-and-death-animations](tasks/implement-player-damage-and-death-animations.md)
+- [sound-effects](tasks/sound-effects.md)
 
 ## Done
 
 - [enemy-hit-animation](tasks/enemy-hit-animation.md)
+- [level-4-enemies-and-nav-mesh](tasks/level-4-enemies-and-nav-mesh.md)
 - [bug-adding-more-than-one-enemy-to-scene-breaks-animations](tasks/bug-adding-more-than-one-enemy-to-scene-breaks-animations.md)
 - [bug-player-can-roll-in-place](tasks/bug-player-can-roll-in-place.md)
 - [time-pausing-during-animations](tasks/time-pausing-during-animations.md)

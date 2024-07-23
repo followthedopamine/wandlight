@@ -6,7 +6,7 @@ extends Area2D
 @onready var lever_animation = $LeverAnimationPlayer
 @onready var player = $"../Player/PlayerCharacterBody2D"
 
-
+@export var additional_panning_time = 0
 
 var camera_panning = false
 var camera_target
@@ -51,11 +51,11 @@ func open_door():
 	play_lever_animation()
 	await get_tree().create_timer(1.0).timeout
 	pan_to_door()
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.0 + additional_panning_time).timeout
 	play_door_animation()
 	await get_tree().create_timer(1.3).timeout
 	pan_to_player()
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.0 + additional_panning_time).timeout
 	remove_door_collision()
 	start_time()
 

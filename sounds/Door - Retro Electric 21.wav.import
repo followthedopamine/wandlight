@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dbuwxq6hhb4ey"
+path="res://.godot/imported/Door - Retro Electric 21.wav-6b25edea0458887c5d11e8784277094f.sample"
+
+[deps]
+
+source_file="res://sounds/Door - Retro Electric 21.wav"
+dest_files=["res://.godot/imported/Door - Retro Electric 21.wav-6b25edea0458887c5d11e8784277094f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

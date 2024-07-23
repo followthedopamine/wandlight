@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dphooo4hrlynk"]
+[gd_scene load_steps=12 format=3 uid="uid://dphooo4hrlynk"]
 
 [ext_resource type="PackedScene" uid="uid://n0vt6al3j3vw" path="res://scenes/Respawn.tscn" id="1_od17c"]
 [ext_resource type="PackedScene" uid="uid://sx8nv7gt21gg" path="res://scenes/Player.tscn" id="2_d2mo6"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b6sbjm7c08007" path="res://scenes/Ladder.tscn" id="5_mduau"]
 [ext_resource type="PackedScene" uid="uid://dya3ge6t6br4j" path="res://scenes/Door.tscn" id="6_ub4a0"]
 [ext_resource type="PackedScene" uid="uid://84lyisayr6om" path="res://scenes/Enemy.tscn" id="7_l3abi"]
+[ext_resource type="AudioStream" uid="uid://bboytk5mo2h87" path="res://sounds/Retro Ambience 02.wav" id="8_x8kt1"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_v1j34"]
 polygon = PackedVector2Array(-31, 99, -113, 98, -114, 66, -222, 67, -223, 235, -113, 235, -114, 203, -30, 204, -30, 267, 270, 267, 271, 34, 239, 34, 239, -127, 129, -127, 129, 34, -31, 33)
@@ -32,6 +33,7 @@ position = Vector2(-177, 174)
 
 [node name="Map2Sprite2D" type="Sprite2D" parent="Map2StaticBody2D"]
 z_index = -1
+texture_filter = 1
 position = Vector2(24, 82)
 texture = ExtResource("3_776rr")
 
@@ -67,3 +69,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_ckdht")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_x8kt1")
+autoplay = true

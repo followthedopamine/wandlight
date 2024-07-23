@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 200
+@export var speed = 130
 @onready var animations = $AnimationPlayer
 @onready var collision = $PlayerCollisionShape2D
 @onready var wand_light = $WandPointLight2D

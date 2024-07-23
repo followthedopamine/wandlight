@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cn2wdp1hm21tw"]
+[gd_scene load_steps=8 format=3 uid="uid://cn2wdp1hm21tw"]
 
 [ext_resource type="PackedScene" uid="uid://n0vt6al3j3vw" path="res://scenes/Respawn.tscn" id="2_gnmds"]
 [ext_resource type="PackedScene" uid="uid://sx8nv7gt21gg" path="res://scenes/Player.tscn" id="2_kcpbg"]
 [ext_resource type="Texture2D" uid="uid://3cug6vhojapb" path="res://sprites/maps/Map 2.png" id="3_q4ins"]
 [ext_resource type="PackedScene" uid="uid://b6sbjm7c08007" path="res://scenes/Ladder.tscn" id="6_734lp"]
+[ext_resource type="AudioStream" uid="uid://bboytk5mo2h87" path="res://sounds/Retro Ambience 02.wav" id="7_sy2l5"]
 [ext_resource type="PackedScene" uid="uid://baupaakmqqjcw" path="res://scenes/Lever.tscn" id="14_v6ltg"]
 [ext_resource type="PackedScene" uid="uid://dya3ge6t6br4j" path="res://scenes/Door.tscn" id="16_uaqkg"]
 
@@ -18,6 +19,7 @@ position = Vector2(-4, 259)
 
 [node name="Map2Sprite2D" type="Sprite2D" parent="Map2StaticBody2D"]
 z_index = -1
+texture_filter = 1
 texture = ExtResource("3_q4ins")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map2StaticBody2D"]
@@ -34,3 +36,7 @@ next_level = "Level3"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.180005, 0.180005, 0.180005, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_sy2l5")
+autoplay = true

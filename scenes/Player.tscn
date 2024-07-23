@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://sx8nv7gt21gg"]
+[gd_scene load_steps=38 format=3 uid="uid://sx8nv7gt21gg"]
 
 [ext_resource type="Script" path="res://scripts/PlayerMovementScript.gd" id="1_fuxiv"]
 [ext_resource type="Texture2D" uid="uid://dq4pcvcuk1mlg" path="res://sprites/Idle Down-Sheet-export.png" id="2_u366r"]
@@ -6,9 +6,11 @@
 [ext_resource type="Script" path="res://scripts/WandPointLight2D.gd" id="4_cy10v"]
 [ext_resource type="Script" path="res://scripts/PlayerRespawn.gd" id="5_ceimh"]
 [ext_resource type="Texture2D" uid="uid://rwsxy02cabus" path="res://sprites/Roll_Down-Sheet.png" id="6_wenqs"]
+[ext_resource type="AudioStream" uid="uid://dk206eqjhu6d5" path="res://sounds/Charge - Retro Magic Protection 01.wav" id="7_ledtv"]
 [ext_resource type="Texture2D" uid="uid://c0jgewwdxidmd" path="res://sprites/Roll_Right-Sheet.png" id="7_xay1p"]
 [ext_resource type="Texture2D" uid="uid://d1gfnhwrg3p7h" path="res://sprites/Roll_Up-Sheet.png" id="8_dt1p3"]
 [ext_resource type="Texture2D" uid="uid://d21kbpjd8rafi" path="res://sprites/Run_Down-Sheet.png" id="9_7y81o"]
+[ext_resource type="AudioStream" uid="uid://yo5or6vfw10a" path="res://sounds/Roll - Retro Swooosh 16.wav" id="10_8gwas"]
 [ext_resource type="Texture2D" uid="uid://xvetrh4nh8rf" path="res://sprites/Run_Right-Sheet.png" id="10_oklre"]
 [ext_resource type="Texture2D" uid="uid://fclb5tabh3fn" path="res://sprites/Run_Up-Sheet.png" id="11_o21s4"]
 [ext_resource type="Texture2D" uid="uid://bh7i521vdxdmf" path="res://sprites/Refill-Sheet.png" id="12_3i0vo"]
@@ -16,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://26wlx38f4fh1" path="res://sprites/maps/Map 1.png" id="13_yrka1"]
 [ext_resource type="Texture2D" uid="uid://bwchupt0aw1bg" path="res://sprites/Hit Up-Sheet-export.png" id="14_2g433"]
 [ext_resource type="Texture2D" uid="uid://cp8pweiilag2r" path="res://sprites/Hit Right-Sheet-export.png" id="15_h55gq"]
+[ext_resource type="AudioStream" uid="uid://cg3qthljg3stm" path="res://sounds/Hit - Retro Impact Punch 07.wav" id="16_7mqs5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fwu60"]
 radius = 5.0
@@ -116,6 +119,81 @@ tracks/2/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 6, 7, 5, 6, 6, 7, 5, 6, 6, 7, 5, 6, 6, 7, 5, 6, 6, 7, 5, 6, 6, 7, 5, 6, 6, 7, 5, 6, 6, 7, 5, 6, 6, 7, 5, 6, 6, 7]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RollAudioStreamPlayer2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.55,
+"start_offset": 0.0,
+"stream": ExtResource("7_ledtv")
+}, {
+"end_offset": 0.55,
+"start_offset": 0.0,
+"stream": ExtResource("7_ledtv")
+}, {
+"end_offset": 0.55,
+"start_offset": 0.0,
+"stream": ExtResource("7_ledtv")
+}, {
+"end_offset": 0.55,
+"start_offset": 0.0,
+"stream": ExtResource("7_ledtv")
+}, {
+"end_offset": 0.55,
+"start_offset": 0.0,
+"stream": ExtResource("7_ledtv")
+}, {
+"end_offset": 0.55,
+"start_offset": 0.0,
+"stream": ExtResource("7_ledtv")
+}, {
+"end_offset": 0.55,
+"start_offset": 0.0,
+"stream": ExtResource("7_ledtv")
+}, {
+"end_offset": 0.55,
+"start_offset": 0.0,
+"stream": ExtResource("7_ledtv")
+}, {
+"end_offset": 0.55,
+"start_offset": 0.0,
+"stream": ExtResource("7_ledtv")
+}, {
+"end_offset": 0.55,
+"start_offset": 0.0,
+"stream": ExtResource("7_ledtv")
+}, {
+"end_offset": 0.55,
+"start_offset": 0.0,
+"stream": ExtResource("7_ledtv")
+}, {
+"end_offset": 0.55,
+"start_offset": 0.0,
+"stream": ExtResource("7_ledtv")
+}, {
+"end_offset": 0.55,
+"start_offset": 0.0,
+"stream": ExtResource("7_ledtv")
+}, {
+"end_offset": 0.55,
+"start_offset": 0.0,
+"stream": ExtResource("7_ledtv")
+}, {
+"end_offset": 0.55,
+"start_offset": 0.0,
+"stream": ExtResource("7_ledtv")
+}, {
+"end_offset": 0.55,
+"start_offset": 0.0,
+"stream": ExtResource("7_ledtv")
+}],
+"times": PackedFloat32Array(0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4.2, 4.8, 5.4, 6, 6.6, 7.2, 7.8, 8.4, 9)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_y8tdb"]
 resource_name = "idle_down"
@@ -200,6 +278,21 @@ tracks/2/keys = {
 "update": 1,
 "values": [4]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RollAudioStreamPlayer2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("10_8gwas")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_wej0y"]
 resource_name = "roll_left"
@@ -254,6 +347,21 @@ tracks/3/keys = {
 "update": 1,
 "values": [4]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RollAudioStreamPlayer2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("10_8gwas")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_md1v2"]
 resource_name = "roll_right"
@@ -308,6 +416,21 @@ tracks/3/keys = {
 "update": 1,
 "values": [4]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RollAudioStreamPlayer2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("10_8gwas")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_31t60"]
 resource_name = "roll_up"
@@ -350,6 +473,21 @@ tracks/2/keys = {
 "update": 1,
 "values": [4]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RollAudioStreamPlayer2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("10_8gwas")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_hbsyh"]
 resource_name = "walk_down"
@@ -583,6 +721,21 @@ tracks/2/keys = {
 "update": 1,
 "values": [6]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RollAudioStreamPlayer2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("16_7mqs5")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_xb5s0"]
 resource_name = "hit_up"
@@ -624,6 +777,21 @@ tracks/2/keys = {
 "update": 1,
 "values": [6]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RollAudioStreamPlayer2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("16_7mqs5")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_tv4mx"]
 resource_name = "hit_left"
@@ -677,6 +845,21 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(-1, 1)]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RollAudioStreamPlayer2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("16_7mqs5")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_vuy7k"]
 resource_name = "hit_right"
@@ -730,6 +913,21 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RollAudioStreamPlayer2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("16_7mqs5")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ii27q"]
 _data = {
@@ -795,6 +993,8 @@ script = ExtResource("5_ceimh")
 libraries = {
 "": SubResource("AnimationLibrary_ii27q")
 }
+
+[node name="RollAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="PlayerCharacterBody2D"]
 
 [node name="Map1" type="Sprite2D" parent="."]
 visible = false

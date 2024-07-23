@@ -7,7 +7,7 @@ extends PointLight2D
 var light_strength = 2
 var initial_strength = light_strength
 var light_decay = 0.5
-var light_charge_speed = 0.3
+var light_charge_speed = 0.6
 var light_damage = 0.4
 var needs_respawn = false
 var is_charging = false

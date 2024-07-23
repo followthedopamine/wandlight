@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://n0vt6al3j3vw"]
+[gd_scene load_steps=7 format=3 uid="uid://n0vt6al3j3vw"]
 
 [ext_resource type="Texture2D" uid="uid://b3d0qxsw46d4j" path="res://sprites/Fall-Sheet.png" id="1_m34v8"]
+[ext_resource type="AudioStream" uid="uid://0v5o7qbwrcaj" path="res://sounds/Fall in - Retro Descending Short 20.wav" id="2_alvva"]
+[ext_resource type="AudioStream" uid="uid://cg3qthljg3stm" path="res://sounds/Hit - Retro Impact Punch 07.wav" id="3_yg7wq"]
 
 [sub_resource type="Animation" id="Animation_78avj"]
 length = 0.001
@@ -31,6 +33,25 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 6, 7, 0]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.41,
+"stream": ExtResource("2_alvva")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_yg7wq")
+}],
+"times": PackedFloat32Array(0, 0.8)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1yjbb"]
 _data = {
@@ -51,3 +72,5 @@ hframes = 8
 libraries = {
 "": SubResource("AnimationLibrary_1yjbb")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://drb4a6ydwbydu"]
+[gd_scene load_steps=10 format=3 uid="uid://drb4a6ydwbydu"]
 
 [ext_resource type="PackedScene" uid="uid://n0vt6al3j3vw" path="res://scenes/Respawn.tscn" id="1_mk5od"]
 [ext_resource type="PackedScene" uid="uid://sx8nv7gt21gg" path="res://scenes/Player.tscn" id="2_d7alq"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b6sbjm7c08007" path="res://scenes/Ladder.tscn" id="5_w8r0t"]
 [ext_resource type="PackedScene" uid="uid://dya3ge6t6br4j" path="res://scenes/Door.tscn" id="6_1wfw5"]
 [ext_resource type="PackedScene" uid="uid://84lyisayr6om" path="res://scenes/Enemy.tscn" id="7_tvqx3"]
+[ext_resource type="AudioStream" uid="uid://bboytk5mo2h87" path="res://sounds/Retro Ambience 02.wav" id="8_5pea4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_43n5v"]
 vertices = PackedVector2Array(285, 129, 352, 127, 352, 336, 286, 192, 101, 190, 29, 336, 93, 191, 124, -36, 121, -248, 133, -248, 133, -12, 100, -12, -130, -34, -130, 0, 93, 51, -131, 51, -131, 19, -130, 154, -60, 154, -59, 242, -131, 243, -132, 211, -131, 177, -136, 190, -227, 212, -220, 190, -228, 178, -220, 155, -352, 154, -356, 177, -356, 1, -352, 22, 29, 192)
@@ -26,6 +27,7 @@ position = Vector2(-94, 200)
 
 [node name="Map2Sprite2D" type="Sprite2D" parent="Map2StaticBody2D"]
 z_index = -1
+texture_filter = 1
 texture = ExtResource("3_j80q5")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map2StaticBody2D"]
@@ -33,10 +35,11 @@ polygon = PackedVector2Array(-48, 142, -143, 142, -144, 176, -208, 175, -208, 14
 
 [node name="LeverArea2D" parent="." instance=ExtResource("4_qrbs1")]
 position = Vector2(266, 137)
+additional_panning_time = 1
 
 [node name="LadderArea2D" parent="." instance=ExtResource("5_w8r0t")]
 position = Vector2(128, -321)
-next_level = "Level3"
+next_level = "Victory"
 
 [node name="DoorStaticBody2D" parent="." instance=ExtResource("6_1wfw5")]
 position = Vector2(127, -234)
@@ -49,3 +52,10 @@ position = Vector2(-96, 6)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_43n5v")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_5pea4")
+autoplay = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)

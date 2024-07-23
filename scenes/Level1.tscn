@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5qkvl38nfae3"]
+[gd_scene load_steps=7 format=3 uid="uid://c5qkvl38nfae3"]
 
 [ext_resource type="PackedScene" uid="uid://sx8nv7gt21gg" path="res://scenes/Player.tscn" id="1_1rrmi"]
 [ext_resource type="Texture2D" uid="uid://26wlx38f4fh1" path="res://sprites/maps/Map 1.png" id="1_fions"]
 [ext_resource type="PackedScene" uid="uid://n0vt6al3j3vw" path="res://scenes/Respawn.tscn" id="2_5jalu"]
 [ext_resource type="PackedScene" uid="uid://b6sbjm7c08007" path="res://scenes/Ladder.tscn" id="4_prva4"]
+[ext_resource type="AudioStream" uid="uid://bboytk5mo2h87" path="res://sounds/Retro Ambience 02.wav" id="5_q3nmt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bj7yc"]
 size = Vector2(271, 20)
@@ -20,6 +21,7 @@ position = Vector2(106, 172)
 
 [node name="Map1Sprite2D" type="Sprite2D" parent="Map1StaticBody2D"]
 z_index = -1
+texture_filter = 1
 position = Vector2(305, 161)
 texture = ExtResource("1_fions")
 
@@ -35,3 +37,7 @@ position = Vector2(390.5, 136)
 shape = SubResource("RectangleShape2D_bj7yc")
 
 [node name="LadderArea2D" parent="." instance=ExtResource("4_prva4")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_q3nmt")
+autoplay = true

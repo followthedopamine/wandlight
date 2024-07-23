@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqk4ke2uw7l1o"]
+
+[ext_resource type="Texture2D" uid="uid://kyjk5k5rxmpi" path="res://sprites/Victory Screen.png" id="1_au01v"]
+[ext_resource type="AudioStream" uid="uid://bboytk5mo2h87" path="res://sounds/Retro Ambience 02.wav" id="5_aoisj"]
+
+[node name="Victory" type="Node2D"]
+
+[node name="VictoryScreen" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_au01v")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_aoisj")
+autoplay = true
