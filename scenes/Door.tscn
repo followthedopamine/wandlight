@@ -90,6 +90,7 @@ texture_scale = 16.75
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Sketches" type="Sprite2D" parent="."]
+visible = false
 z_index = -2
 position = Vector2(-1, 58)
 texture = ExtResource("3_kjjy3")
