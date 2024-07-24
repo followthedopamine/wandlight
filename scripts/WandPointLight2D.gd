@@ -9,6 +9,7 @@ var initial_strength = light_strength
 var light_decay = 0.3
 var light_charge_speed = 0.6
 var light_damage = 0.4
+var light_max = 2.75
 var needs_respawn = false
 var is_charging = false
 
@@ -25,7 +26,8 @@ func decay_light(delta):
 		check_failure_condition()
 		
 func charge_light(delta):
-	light_strength = light_strength + light_charge_speed * delta
+	if light_strength < light_max:
+		light_strength = light_strength + light_charge_speed * delta
 	
 func update_light():
 	self.texture_scale = light_strength
