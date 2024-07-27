@@ -1,4 +1,4 @@
-##Wandlight
+## Wandlight
 
 WandLight is a cute pixel art dodge 'em up where your objective is to get to the end of the level without letting the enemies snuff your light out.
 
